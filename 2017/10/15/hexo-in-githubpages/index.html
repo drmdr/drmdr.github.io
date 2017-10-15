@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="あちゅろのプログラミング勉強おメモ">
 <meta property="og:description" content="このブログは、Hexoという静的サイトジェネレータをGithub Pagesで公開することでできております。あっとゆう間にブログができて簡単だったのでその解説をいたします。 全体の参考にしたサイトはこちらです所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！ | 株式会社LIGhttps://liginc.co.jp/web/programming/server/10">
 <meta property="og:locale" content="ja">
-<meta property="og:updated_time" content="2017-10-15T00:19:59.000Z">
+<meta property="og:updated_time" content="2017-10-15T00:26:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo Github ページでブログを作成しました">
 <meta name="twitter:description" content="このブログは、Hexoという静的サイトジェネレータをGithub Pagesで公開することでできております。あっとゆう間にブログができて簡単だったのでその解説をいたします。 全体の参考にしたサイトはこちらです所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！ | 株式会社LIGhttps://liginc.co.jp/web/programming/server/10">
@@ -116,42 +116,27 @@ ga('send', 'pageview');
 <p><strong>【ここは左側に書いてあるOwner名】.github.io にしないとGithub Pagesは作れません。 </strong></p>
 <p>これでGithub Pagesは完成！<br><strong>SSHアドレスをコピーしておきます</strong></p>
 <h1 id="3-Hexoの設定をする"><a href="#3-Hexoの設定をする" class="headerlink" title="3.Hexoの設定をする"></a>3.Hexoの設定をする</h1><h2 id="Node-jsをインストールするためのNodebrewをインストールする"><a href="#Node-jsをインストールするためのNodebrewをインストールする" class="headerlink" title="Node.jsをインストールするためのNodebrewをインストールする"></a>Node.jsをインストールするためのNodebrewをインストールする</h2><p><em>Nodebrew</em>というものでNode.jsをインストールします。このNodebrewを入れるのに、前からインストールしていたHomebrewを使います。</p>
-<pre><code>brew install nodebrew
-
-nodebrew setup
-</code></pre><p>ここでPathを通すってことを行います。勉強が足りないのでこれがどんな意味かはわかりませんが、言われたとおりに行います。</p>
-<pre><code>$ echo &quot;export PATH=\$HOME/.nodebrew/current/bin:\$PATH&quot; &gt;&gt; ~/.bash_profile
-
-$source ~/.bash_profile
-</code></pre><h2 id="やっとNode-jsをインストールします"><a href="#やっとNode-jsをインストールします" class="headerlink" title="やっとNode.jsをインストールします"></a>やっとNode.jsをインストールします</h2><p>これでNodebrewを習得したので、これを使ってNode.jsをインストールします。<br>stableというオプションを付けることで、安定版をインストールすることができます。</p>
-<pre><code>nodebrew install-binary stable
-</code></pre><h2 id="ようやくHexoをインストールします"><a href="#ようやくHexoをインストールします" class="headerlink" title="ようやくHexoをインストールします"></a>ようやくHexoをインストールします</h2><pre><code>npm install -g hexo
-</code></pre><p>-gというのはMac的にグローバルインストールという意味だそうです。たまに使うのですが、これもまた詳しくわかりません。<br>わたしはとても強く、何人たりとも邪魔されないインストール方法という認識です。（たまにエラーが出ますが…）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ brew install nodebrew</div><div class="line"></div><div class="line">$ nodebrew setup</div></pre></td></tr></table></figure>
+<p>ここでPathを通すってことを行います。勉強が足りないのでこれがどんな意味かはわかりませんが、言われたとおりに行います。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="string">"export PATH=\$HOME/.nodebrew/current/bin:\$PATH"</span> &gt;&gt; ~/.bash_profile</div><div class="line">$ <span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure>
+<h2 id="やっとNode-jsをインストールします"><a href="#やっとNode-jsをインストールします" class="headerlink" title="やっとNode.jsをインストールします"></a>やっとNode.jsをインストールします</h2><p>これでNodebrewを習得したので、これを使ってNode.jsをインストールします。<br>stableというオプションを付けることで、安定版をインストールすることができます。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nodebrew install-binary stable</div></pre></td></tr></table></figure>
+<h2 id="ようやくHexoをインストールします"><a href="#ようやくHexoをインストールします" class="headerlink" title="ようやくHexoをインストールします"></a>ようやくHexoをインストールします</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
+<p>-gというのはMac的にグローバルインストールという意味だそうです。たまに使うのですが、これもまた詳しくわかりません。<br>わたしはとても強く、何人たりとも邪魔されないインストール方法という認識です。（たまにエラーが出ますが…）</p>
 <h2 id="自分のパソコン（ローカル）にブログの場所を作る"><a href="#自分のパソコン（ローカル）にブログの場所を作る" class="headerlink" title="自分のパソコン（ローカル）にブログの場所を作る"></a>自分のパソコン（ローカル）にブログの場所を作る</h2><p>よきような場所にフォルダを作ったら、ここにブログを作るぞと宣言します</p>
-<pre><code>hexo init [myblog]
-</code></pre><p>すると、ファイルができました。<br>これだけではダメだそうで、以下も唱えます</p>
-<pre><code>npm install
-</code></pre><p>長かったですが、今まででの作業でローカルにブログが生まれました。しかしまだ寝ているので起こします。</p>
-<pre><code>Hexo server
-</code></pre><p><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> にアクセスするとブログが…！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init [myblog←好きにつける]</div></pre></td></tr></table></figure>
+<p>すると、ファイルができました。<br>これだけではダメだそうで、以下も唱えます</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<p>長かったですが、今まででの作業でローカルにブログが生まれました。しかしまだ寝ているので起こします。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> にアクセスするとブログが…！</p>
 <h1 id="4-公開（デプロイ）をする"><a href="#4-公開（デプロイ）をする" class="headerlink" title="4.公開（デプロイ）をする"></a>4.公開（デプロイ）をする</h1><p>3までで文章としては長くなってしまいましたが、まだ自分のパソコンの中だけの話なのでネットという広大な海に解き放ちましょう。<br>そのためにはブログの設定ファイルに、2で作ったGithub pageが君のインターネットの居場所だと教える必要があります。</p>
 <h2 id="設定をする"><a href="#設定をする" class="headerlink" title="設定をする"></a>設定をする</h2><p>Hexoの少しややこしいところは、設定ファイルが全体版とテーマ版にわかれていることです。ここでは全体版の_config.ymlを開きます</p>
 <p>名前をつけるのを忘れていたので、ファイルの前半にも書きましょう。</p>
-<pre><code>title:サイト名
-subtitle:サブタイトル
-author:作者
-timezone:Asia/Tokyo
-
-#URL
-2で作ったGithub PagesのURLをペーストする
-
-#Deployment
-type: git
-repo: 2でコピーしておいたSSHのアドレスをペーストする
-branch: master
-</code></pre><h2 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h2><p>遂にデプロイし、ネットに公開します！</p>
-<pre><code>hexo deploy -g
-</code></pre><p>完成！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">title:サイト名</div><div class="line">subtitle:サブタイトル</div><div class="line">author:作者</div><div class="line">timezone:Asia/Tokyo</div><div class="line"></div><div class="line"><span class="comment">#URL</span></div><div class="line">2で作ったGithub PagesのURLをペーストする</div><div class="line"></div><div class="line"><span class="comment">#Deployment</span></div><div class="line"><span class="built_in">type</span>: git</div><div class="line">repo: 2でコピーしておいたSSHのアドレスをペーストする</div><div class="line">branch: master</div></pre></td></tr></table></figure>
+<h2 id="デプロイ"><a href="#デプロイ" class="headerlink" title="デプロイ"></a>デプロイ</h2><p>遂にデプロイし、ネットに公開します！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy -g</div></pre></td></tr></table></figure>
+<p>完成！</p>
 <h1 id="5-おまけ"><a href="#5-おまけ" class="headerlink" title="5.おまけ"></a>5.おまけ</h1><h2 id="Google-Analytics"><a href="#Google-Analytics" class="headerlink" title="Google Analytics"></a>Google Analytics</h2><p>Googleアナリティクスの設定は、テーマファイル内の_config.ymlにIDを書くだけ！</p>
 <p>Hexo に Google Analytics を 設置する | 験なきものを思はずは<br><a href="https://azriton.github.io/2016/12/20/Hexo%E3%81%ABGoogle-Analytics%E3%82%92%E8%A8%AD%E7%BD%AE%E3%81%99%E3%82%8B/" target="_blank" rel="external">https://azriton.github.io/2016/12/20/Hexo%E3%81%ABGoogle-Analytics%E3%82%92%E8%A8%AD%E7%BD%AE%E3%81%99%E3%82%8B/</a></p>
 <h2 id="スタイルをちょこちょこ変える"><a href="#スタイルをちょこちょこ変える" class="headerlink" title="スタイルをちょこちょこ変える"></a>スタイルをちょこちょこ変える</h2><p>CSSを編集するときはthemeフォルダ内のstyle.stylファイル触りましょう。<br>最初publicフォルダ内のstyle.cssを編集していましたが、ローカルに反映されませんでした。<br>今回の仕組みはthemeフォルダ内の分割されたstylファイルがpublicフォルダのstyle.cssにキュッとなるので<br>stylの方を書かないといけません。</p>
